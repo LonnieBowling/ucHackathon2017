@@ -4,12 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import 'materialize-css';
-import { AppComponent } from './app.component';
 import { MaterializeModule } from 'angular2-materialize';
+import { AppComponent } from './app.component';
+import { ChartComponent } from './chart.component';
+import { KPIComponent } from './kpi.component';
+
+import { PiDataService } from './pi-data.service';
+
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        ChartComponent,
+        KPIComponent
     ],
     imports: [
         BrowserModule,
@@ -17,7 +24,7 @@ import { MaterializeModule } from 'angular2-materialize';
         HttpModule,
         MaterializeModule
     ],
-    providers: [],
+    providers: [PiDataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
