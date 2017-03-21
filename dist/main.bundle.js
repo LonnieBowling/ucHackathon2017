@@ -99,6 +99,7 @@ var PiDataService = (function () {
     }
     PiDataService.prototype.getPIData = function () {
         var testCall = this.piWebApiURL + '/streams/A0EZ2p7MdUQTUCtLlKDN7d5QAQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot';
+        //   let testCall = 'https://proghackuc2017.osisoft.com/piwebapi/streams/A0EZ2p7MdUQTUCtLlKDN7d5QAQyAVZw8L5xGpVwANOjb6cAqqqTMrIhcVE1lXcA9LQIXQU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8RlVFTCBTQ09SRQ/plot'
         var username = 'osiproghack\hackuser066';
         var password = 'h3ektweiF6%';
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
@@ -111,7 +112,8 @@ var PiDataService = (function () {
         //    https://localhost/piwebapi/elements?path=\\EME\Power\Atlanta%20Data%20Center\Server%20Rack1\ION%206200%20Power%20Meter1
         //get all truck elements
         //    let testCall = this.piWebApiURL + '/assetdatabases/D0Z2p7MdUQTUCtLlKDN7d5QASpte1UIgn0yHVA-5sdeG3AU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURQ/elements'
-        var testCall = this.piWebApiURL + "/elements?path=" + "\\\\SATURN057\\Barrick Haul Trucks Site\\Truck " + truckId;
+        var testCall = this.piWebApiURL + "/elements?path=" +
+            "\\\\SATURN057\\Barrick Haul Trucks Site\\Truck " + truckId;
         var username = 'osiproghack\hackuser066';
         var password = 'h3ektweiF6%';
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
@@ -196,7 +198,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var HomeComponent = (function () {
     function HomeComponent(piDataService) {
         this.piDataService = piDataService;
-        this.title = 'Hourly Production';
+        this.title = 'Total Fuel Score';
         this.todayProd = {
             title: "Today's Production",
             value: "500",
@@ -274,19 +276,34 @@ var TruckComponent = (function () {
         this.title = 'Hourly Production';
         this.name = "";
         this.todayProd = {
-            title: "Speed",
-            value: "15.2",
-            units: "mph"
+            title: "State",
+            value: "Running",
+            units: ""
         };
         this.yesterdayProd = {
-            title: "Engine Speed",
-            value: "786",
-            units: "rpms"
+            title: "Speed",
+            value: "15.3",
+            units: "mph"
         };
         this.monthlyProd = {
-            title: "Engine Temp",
-            value: "119.2",
-            units: "deg F"
+            title: "Fuel Score",
+            value: "10,034",
+            units: "rev/liter"
+        };
+        this.todayProd1 = {
+            title: "Idle Hours",
+            value: "2.4",
+            units: "hr"
+        };
+        this.yesterdayProd1 = {
+            title: "Loading Hours",
+            value: "1.6",
+            units: "hr"
+        };
+        this.monthlyProd1 = {
+            title: "Running Hours",
+            value: "22.2",
+            units: "hr"
         };
     }
     TruckComponent.prototype.ngOnInit = function () {
@@ -579,7 +596,7 @@ var ChartComponent = (function () {
             .attr("y", 6)
             .attr("dy", "0.71em")
             .style("text-anchor", "end")
-            .text("Tons");
+            .text("rpms/liter");
         //label axis
     };
     __decorate([
@@ -715,7 +732,7 @@ module.exports = ""
 /***/ 684:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"black\">\r\n    <!--\r\n<div class=\"navbar-fixed\">\r\n<nav class=\"blue-grey darken-4\">\r\n<div class=\"nav-wrapper  gray\">\r\n<a href=\"#\" class=\"brand-logo\">Barrick Haul Truck Operations Portal</a>\r\n<a routerLink=\"/home\" routerLinkActive=\"active\">Home</a>\r\n<a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\r\n<ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\r\n<li><a href=\"#\">Login</a></li>\r\n</ul>\r\n</div>\r\n</nav>\r\n</div>\r\n-->\r\n\r\n    <nav  class=\"blue-grey darken-4\">\r\n        <div class=\"nav-wrapper\">\r\n            <a href=\"#\" class=\"brand-logo\">Barrick Haul Truck Operations Portal</a>\r\n<!--\r\n            <ul id=\"nav-mobile\" >\r\n                <li><a routerLink=\"/home\" routerLinkActive=\"active\">Home</a></li>\r\n                <li><a routerLink=\"/truck\" routerLinkActive=\"active\">Truck</a></li>\r\n            </ul>\r\n-->\r\n        </div>\r\n    </nav>\r\n    \r\n    <div  >\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n\r\n    <footer class=\"page-footer blue-grey darken-4\">\r\n        <div class=\"container\">\r\n\r\n        </div>\r\n        <div class=\"footer-copyright\">\r\n            <div class=\"container\">\r\n                Made by <a href=\"#\">Team PI in the Sky</a>\r\n            </div>\r\n        </div>\r\n    </footer>\r\n</div>\r\n"
+module.exports = "<div class=\"black\">\r\n    <!--\r\n<div class=\"navbar-fixed\">\r\n<nav class=\"blue-grey darken-4\">\r\n<div class=\"nav-wrapper  gray\">\r\n<a href=\"#\" class=\"brand-logo\">Barrick Haul Truck Operations Portal</a>\r\n<a routerLink=\"/home\" routerLinkActive=\"active\">Home</a>\r\n<a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\r\n<ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\r\n<li><a href=\"#\">Login</a></li>\r\n</ul>\r\n</div>\r\n</nav>\r\n</div>\r\n-->\r\n\r\n    <nav  class=\"blue-grey darken-4\">\r\n        <div class=\"nav-wrapper\">\r\n            \r\n            <a href=\"#\" class=\"brand-logo\">Haul Truck Operations Portal</a>\r\n            \r\n<!--\r\n            <ul id=\"nav-mobile\" >\r\n                <li><a routerLink=\"/home\" routerLinkActive=\"active\">Home</a></li>\r\n                <li><a routerLink=\"/truck\" routerLinkActive=\"active\">Truck</a></li>\r\n            </ul>\r\n-->\r\n        </div>\r\n    </nav>\r\n    \r\n    <div  >\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n\r\n    <footer class=\"page-footer blue-grey darken-4\">\r\n        <div class=\"container\">\r\n\r\n        </div>\r\n        <div class=\"footer-copyright\">\r\n            <div class=\"container\">\r\n                Made by <a href=\"#\">Team PI in the Sky</a>\r\n            </div>\r\n        </div>\r\n    </footer>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -736,14 +753,14 @@ module.exports = "<div class=\"row\">\r\n    <div class=\"col s12 m4\">\r\n     
 /***/ 687:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card-panel blue-grey darken-4\">\r\n\r\n    <div class=\"row\">\r\n        <div class=\"center deep-purple-text text-deep-purple-darken-4\">\r\n            <i class=\"material-icons medium\">insert_chart</i>\r\n            <span class=\"flow-text blue-grey-text text-lighten-5\" style=\"vertical-algin:middle;\">{{data.title}}</span>\r\n        </div>\r\n\r\n\r\n    </div>\r\n\r\n    <h3 class=\"center blue-grey-text text-lighten-5\">{{data.value}}</h3>\r\n\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"card-panel blue-grey darken-4\">\r\n\r\n    <div class=\"row\">\r\n        <div class=\"center deep-purple-text text-deep-purple-darken-4\">\r\n            <i class=\"material-icons medium\">insert_chart</i>\r\n            <span class=\"flow-text blue-grey-text text-lighten-5\" style=\"vertical-algin:middle;\">{{data.title}} </span>\r\n        </div>\r\n\r\n\r\n    </div>\r\n\r\n    <h3 class=\"center blue-grey-text text-lighten-5\">{{data.value}}<span style=\"font-size:14px\"> {{data.units}}</span></h3>\r\n    \r\n\r\n\r\n</div>\r\n"
 
 /***/ }),
 
 /***/ 688:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n<h3 class=\"blue-grey-text text-lighten-5\">{{name}}</h3>\r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"todayProd\"></my-kpi>\r\n    </div>\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"yesterdayProd\"></my-kpi>\r\n    </div>\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"monthlyProd\"></my-kpi>\r\n        \r\n    </div>\r\n</div>\r\n\r\n\r\n<!--\r\n<div ng-repeat=\"d in trucks.Items\">\r\n  <span>Truck : {{ d.Name }}</span>\r\n  <span>WebId : {{ d.Id }}</span>\r\n</div>\r\n-->\r\n\r\n<!--\r\n<div class=\"row\">\r\n    <div class=\"card-panel blue-grey darken-4\">\r\n        <h5 class=\"blue-grey-text text-lighten-5\">\r\n            {{title}}\r\n        </h5>\r\n        <div>\r\n            <my-chart [data]=\"data1\"></my-chart>\r\n        </div>\r\n    </div>\r\n</div>\r\n-->\r\n"
+module.exports = "<div class=\"row\">\r\n<h3 class=\"blue-grey-text text-lighten-5\">{{name}}</h3>\r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"todayProd\"></my-kpi>\r\n    </div>\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"yesterdayProd\"></my-kpi>\r\n    </div>\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"monthlyProd\"></my-kpi>\r\n        \r\n    </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"todayProd1\"></my-kpi>\r\n    </div>\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"yesterdayProd1\"></my-kpi>\r\n    </div>\r\n    <div class=\"col s12 m4\">\r\n        <my-kpi [data]=\"monthlyProd1\"></my-kpi>\r\n        \r\n    </div>\r\n</div>\r\n\r\n\r\n<!--\r\n<div ng-repeat=\"d in trucks.Items\">\r\n  <span>Truck : {{ d.Name }}</span>\r\n  <span>WebId : {{ d.Id }}</span>\r\n</div>\r\n-->\r\n\r\n<!--\r\n<div class=\"row\">\r\n    <div class=\"card-panel blue-grey darken-4\">\r\n        <h5 class=\"blue-grey-text text-lighten-5\">\r\n            {{title}}\r\n        </h5>\r\n        <div>\r\n            <my-chart [data]=\"data1\"></my-chart>\r\n        </div>\r\n    </div>\r\n</div>\r\n-->\r\n"
 
 /***/ }),
 

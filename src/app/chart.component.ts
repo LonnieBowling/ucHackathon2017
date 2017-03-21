@@ -110,7 +110,7 @@ export class ChartComponent implements AfterViewInit, OnChanges {
             .attr("y", 6)
             .attr("dy", "0.71em")
             .style("text-anchor", "end")
-            .text("Tons");
+            .text("rpms/liter");
         //label axis
 
 

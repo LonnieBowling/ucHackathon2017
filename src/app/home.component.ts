@@ -12,7 +12,7 @@ import {KPIComponent} from './kpi.component';
 })
 export class HomeComponent implements AfterViewInit {
 
-    title = 'Hourly Production';
+    title = 'Total Fuel Score';
 
     private data1: any;
     private trucks: any;

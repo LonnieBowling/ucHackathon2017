@@ -22,21 +22,39 @@ export class TruckComponent implements AfterViewInit {
     private truck: any;
     private error: any;
     private todayProd: any = {
-        title: "Speed",
-        value: "15.2",
-        units: "mph"
+        title: "State",
+        value: "Running",
+        units: ""
     }
 
     private yesterdayProd: any = {
-        title: "Engine Speed",
-        value: "786",
-        units: "rpms"
+        title: "Speed",
+        value: "15.3",
+        units: "mph"
     }
 
     private monthlyProd: any = {
-        title: "Engine Temp",
-        value: "119.2",
-        units: "deg F"
+        title: "Fuel Score",
+        value: "10,034",
+        units: "rev/liter"
+    }
+    
+        private todayProd1: any = {
+        title: "Idle Hours",
+        value: "2.4",
+        units: "hr"
+    }
+
+    private yesterdayProd1: any = {
+        title: "Loading Hours",
+        value: "1.6",
+        units: "hr"
+    }
+
+    private monthlyProd1: any = {
+        title: "Running Hours",
+        value: "22.2",
+        units: "hr"
     }
 
     constructor(
