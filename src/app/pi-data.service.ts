@@ -7,13 +7,13 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class PiDataService {
-    //    https://proghackuc2017.osisoft.com/piwebapi/streams/A0EZ2p7MdUQTUCtLlKDN7d5QAQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot
+//https://proghackuc2017.osisoft.com/piwebapi/streams/A0ENpDlVPzcdUCoqrBt82_XOwQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU1XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot
+//
+//    private piWebApiURL = 'https://devdata.osisoft.com/piwebapi';
+//private cdt158PlotData = '/streams/P0W6Wlk0_Utku9vWTvxg45oAAwAAAAUElTUlYxXENEVDE1OA/plot';
 
-    private piWebApiURL = 'https://devdata.osisoft.com/piwebapi';
-private cdt158PlotData = '/streams/P0W6Wlk0_Utku9vWTvxg45oAAwAAAAUElTUlYxXENEVDE1OA/plot';
-
-//private piWebApiURL = 'https://proghackuc2017.osisoft.com/piwebapi';
-//private cdt158PlotData = '/streams/A0EZ2p7MdUQTUCtLlKDN7d5QAQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot';
+private piWebApiURL = 'https://proghackuc2017.osisoft.com/piwebapi';
+private cdt158PlotData = '/streams/A0ENpDlVPzcdUCoqrBt82_XOwQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU1XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot';
 // data format -----
 //{
 //  "Links": {},
@@ -45,13 +45,21 @@ private headers = new Headers({'Content-Type': 'application/json'});
 constructor(private http: Http) { }
 
 getPIData(): Observable<any> {
-    let username = 'webapiuser';
-    let password = '!try3.14webapi!';
-
+    
+    var testurl = 'http://proghackuc2017.osisoft.com/piwebapi/streams/A0EZ2p7MdUQTUCtLlKDN7d5QAQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot';
+    
+    let username = 'osiproghack\hackuser055';
+    let password = 'flb2kfraF6%';
+//
     let headers = new Headers();
     headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
-
-    return this.http.get(this.piWebApiURL + this.cdt158PlotData, {headers: headers});
+//
+//    return this.http.get(this.piWebApiURL + this.cdt158PlotData, {headers: headers});
+//    return this.http.get(testurl, {headers: headers});
+    
+//    withCredentials: true?
+//    return this.http.get(testurl, { withCredentials: true}  );
+    return this.http.get(testurl);
 }
 
 

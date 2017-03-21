@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col s12 m4">
+        <my-kpi [data]="todayProd"></my-kpi>
+    </div>
+    <div class="col s12 m4">
+        <my-kpi [data]="yesterdayProd"></my-kpi>
+    </div>
+    <div class="col s12 m4">
+        <my-kpi [data]="monthlyProd"></my-kpi>
+    </div>
+</div>
+
+<div class="row">
+    <div class="card-panel blue-grey darken-4">
+        <h5 class="blue-grey-text text-lighten-5">
+            {{title}}
+        </h5>
+        <div>
+            <my-chart [data]="data1"></my-chart>
+        </div>
+    </div>
+</div>
+</div>
