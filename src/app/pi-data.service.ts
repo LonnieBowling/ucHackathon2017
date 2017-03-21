@@ -40,13 +40,20 @@ private headers = new Headers({'Content-Type': 'application/json'});
 constructor(private http: Http) { }
 
 getPIData(): Observable<any> {
-    let username = 'webapiuser';
-    let password = '!try3.14webapi!';
+//    let testCall = 'https://osiproghack2017ct055.cloudapp.net/piwebapi/streamsets/E0vaEu9ztHOkuyhSdpkO-adwwpYP1wkE5xGpRgANOjCSCwSlVQSVRFUjAwMVxCQVJSSUNLIEhBVUwgVFJVQ0tTIFNJVEVcVFJVQ0sgNDAx/plot';
+    
+    let testCall = 'https://proghackuc2017.osisoft.com/piwebapi/streams/A0EZ2p7MdUQTUCtLlKDN7d5QAQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot'
+    
+    let username = 'osiproghack\hackuser066';
+    let password = 'h3ektweiF6%';
 
     let headers = new Headers();
-    headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
+//    headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
+    headers.append('Authorization', 'Basic b3NpcHJvZ2hhY2tcaGFja3VzZXIwNjY6aDNla3R3ZWlGNiU=');
+    
 
-    return this.http.get(this.piWebApiURL + this.cdt158PlotData, {headers: headers});
+//    return this.http.get(this.piWebApiURL + this.cdt158PlotData, {headers: headers});
+    return this.http.get(testCall, {headers: headers});
 }
 
 
