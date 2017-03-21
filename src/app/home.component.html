@@ -9,6 +9,50 @@
         <my-kpi [data]="monthlyProd"></my-kpi>
     </div>
 </div>
+<div class="row">
+    <div class="col s12 m4">
+        <div class="card-panel blue-grey darken-4">
+
+            <div class="row">
+                <div class="center deep-purple-text text-deep-purple-darken-4">
+                    <span class="flow-text blue-grey-text text-lighten-5" style="vertical-algin:middle;">
+                        <a routerLink="/truck/401" routerLinkActive="active">Truck 401</a>
+                    </span>
+                </div>
+            </div>
+            <h3 class="center blue-grey-text text-lighten-5">Running</h3>
+            <!--            <a [routerLink]="['/truck', '401']"  class="col-1-4">-->
+        </div>
+    </div>
+        <div class="col s12 m4">
+        <div class="card-panel blue-grey darken-4">
+
+            <div class="row">
+                <div class="center deep-purple-text text-deep-purple-darken-4">
+                    <span class="flow-text blue-grey-text text-lighten-5" style="vertical-algin:middle;">
+                        <a routerLink="/truck/402" routerLinkActive="active">Truck 402</a>
+                    </span>
+                </div>
+            </div>
+            <h3 class="center blue-grey-text text-lighten-5">Running</h3>
+            <!--            <a [routerLink]="['/truck', '401']"  class="col-1-4">-->
+        </div>
+    </div>
+        <div class="col s12 m4">
+        <div class="card-panel blue-grey darken-4">
+
+            <div class="row">
+                <div class="center deep-purple-text text-deep-purple-darken-4">
+                    <span class="flow-text blue-grey-text text-lighten-5" style="vertical-algin:middle;">
+                        <a routerLink="/truck/403" routerLinkActive="active">Truck 403</a>
+                    </span>
+                </div>
+            </div>
+            <h3 class="center blue-grey-text text-lighten-5">Running</h3>
+            <!--            <a [routerLink]="['/truck', '401']"  class="col-1-4">-->
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="card-panel blue-grey darken-4">
@@ -20,3 +64,10 @@
         </div>
     </div>
 </div>
+
+<!--
+<div *ngFor="let d of trucks$ | async" class="blue-grey-text text-lighten-5">
+<span>Truck : {{ d.Name }}</span>
+<span>WebId : {{ d.Id }}</span>
+</div>
+-->

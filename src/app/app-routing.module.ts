@@ -8,8 +8,8 @@ import { TruckComponent }      from './truck.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home',  component: HomeComponent },
-//  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'truck',     component: TruckComponent }
+  { path: 'truck/:id', component: TruckComponent },
+//  { path: 'truck',     component: TruckComponent }
 ];
 
 @NgModule({

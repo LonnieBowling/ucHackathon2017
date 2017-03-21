@@ -15,6 +15,7 @@ export class HomeComponent implements AfterViewInit {
     title = 'Hourly Production';
 
     private data1: any;
+    private trucks: any;
     private error: any;
     private todayProd: any = {
         title: "Today's Production",
@@ -39,6 +40,18 @@ export class HomeComponent implements AfterViewInit {
     ){
 
     }
+
+    ngOnInit(): void {
+        this.piDataService.getTrucks().subscribe(
+            response => {
+                this.trucks = response.json().Items;
+                
+            }, error => {
+                this.error = error.json();
+            }
+        );
+    }
+
     ngAfterViewInit() {
         this.piDataService.getPIData().subscribe(
             response => {
@@ -47,6 +60,7 @@ export class HomeComponent implements AfterViewInit {
                 this.error = error.json();
             }
         );
+
     }
 
 }

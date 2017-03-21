@@ -1,4 +1,7 @@
+import 'rxjs/add/operator/switchMap';
 import { Component, AfterViewInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+
 
 import {PiDataService} from './pi-data.service';
 import {ChartComponent} from './chart.component';
@@ -14,42 +17,55 @@ export class TruckComponent implements AfterViewInit {
 
     title = 'Hourly Production';
 
+
     private name = "";
-    private trucks: any;
+    private truck: any;
     private error: any;
     private todayProd: any = {
-        title: "Today's Production",
-        value: "500",
-        units: "Tons"
+        title: "Speed",
+        value: "15.2",
+        units: "mph"
     }
 
     private yesterdayProd: any = {
-        title: "Yesterday's Production",
-        value: "7,300",
-        units: "Tons"
+        title: "Engine Speed",
+        value: "786",
+        units: "rpms"
     }
 
     private monthlyProd: any = {
-        title: "Monthly Production",
-        value: "5,400,000",
-        units: "Tons"
+        title: "Engine Temp",
+        value: "119.2",
+        units: "deg F"
     }
 
     constructor(
-        private piDataService: PiDataService
+        private piDataService: PiDataService,    
+        private route: ActivatedRoute
+
     ){
 
     }
+    
+    ngOnInit(): void {
+        this.route.params
+            .switchMap((params: Params) => this.piDataService.getTruckData(+params['id']))
+            .subscribe(response => {
+            //truck data
+            this.truck = response.json();
+            this.name = this.truck.Name;
+        });
+    }
+    
     ngAfterViewInit() {
-        this.piDataService.getTruckData().subscribe(
-            response => {
-                this.trucks = response.json();
-                var truckItems = this.trucks.Items;
-                this.name = truckItems[0].Name;
-            }, error => {
-                this.error = error.json();
-            }
-        );
+//        this.piDataService.getTruckData("test").subscribe(
+//            response => {
+//                this.trucks = response.json();
+//                this.name = truck.Name;
+//            }, error => {
+//                this.error = error.json();
+//            }
+//        );
     }
 
 }
