@@ -7,54 +7,45 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class PiDataService {
-    private piWebApiURL = 'https://devdata.osisoft.com/piwebapi';
-private cdt158PlotData = '/streams/P0W6Wlk0_Utku9vWTvxg45oAAwAAAAUElTUlYxXENEVDE1OA/plot';
-// data format -----
-//{
-//  "Links": {},
-//  "Items": [
-//    {
-//      "Timestamp": "2016-12-14T22:50:07.4432678Z",
-//      "Value": 65.13365,
-//      "UnitsAbbreviation": "",
-//      "Good": true,
-//      "Questionable": false,
-//      "Substituted": false
-//    },
-//    {
-//      "Timestamp": "2016-12-15T22:50:08Z",
-//      "Value": {
-//        "Name": "No Data",
-//        "Value": 248,
-//        "IsSystem": true
-//      },
-//      "UnitsAbbreviation": "",
-//      "Good": false,
-//      "Questionable": false,
-//      "Substituted": false
-//    }
-//    ...
-//  "UnitsAbbreviation": ""
+
+    private piWebApiURL = 'https://proghackuc2017.osisoft.com/piwebapi';
+
 
 private headers = new Headers({'Content-Type': 'application/json'});
 constructor(private http: Http) { }
 
 getPIData(): Observable<any> {
-//    let testCall = 'https://osiproghack2017ct055.cloudapp.net/piwebapi/streamsets/E0vaEu9ztHOkuyhSdpkO-adwwpYP1wkE5xGpRgANOjCSCwSlVQSVRFUjAwMVxCQVJSSUNLIEhBVUwgVFJVQ0tTIFNJVEVcVFJVQ0sgNDAx/plot';
-    
-    let testCall = 'https://proghackuc2017.osisoft.com/piwebapi/streams/A0EZ2p7MdUQTUCtLlKDN7d5QAQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot'
-    
+
+    let testCall = this.piWebApiURL + '/streams/A0EZ2p7MdUQTUCtLlKDN7d5QAQyAVZw8L5xGpVwANOjb6cASXFvOdnMjFs7YPKa9YA81QU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURVxUUlVDSyA0MDF8QUZUUkNMUiBURU1Q/plot';
+
     let username = 'osiproghack\hackuser066';
     let password = 'h3ektweiF6%';
 
     let headers = new Headers();
-//    headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
+    //    headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
     headers.append('Authorization', 'Basic b3NpcHJvZ2hhY2tcaGFja3VzZXIwNjY6aDNla3R3ZWlGNiU=');
-    
 
-//    return this.http.get(this.piWebApiURL + this.cdt158PlotData, {headers: headers});
+    //    return this.http.get(this.piWebApiURL + this.cdt158PlotData, {headers: headers});
     return this.http.get(testCall, {headers: headers});
 }
 
+getTruckData(): Observable<any> {
+//    https://localhost/piwebapi/elements?path=\\EME\Power\Atlanta%20Data%20Center\Server%20Rack1\ION%206200%20Power%20Meter1
+    
+    //get all truck elements
+    let testCall = this.piWebApiURL + '/assetdatabases/D0Z2p7MdUQTUCtLlKDN7d5QASpte1UIgn0yHVA-5sdeG3AU0FUVVJOMDU3XEJBUlJJQ0sgSEFVTCBUUlVDS1MgU0lURQ/elements'
 
+//    let testCall = this.piWebApiURL + "/elements?path=" + "\\\\SATURN057\\Barrick Haul Trucks Site";//\\Truck 401" ;  
+
+    let username = 'osiproghack\hackuser066';
+    let password = 'h3ektweiF6%';
+
+    let headers = new Headers();
+    headers.append('Authorization', 'Basic b3NpcHJvZ2hhY2tcaGFja3VzZXIwNjY6aDNla3R3ZWlGNiU=');
+
+    return this.http.get(testCall, {headers: headers});
 }
+}
+
+
+
